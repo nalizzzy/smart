@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "grpc.UnaryString";
+option java_outer_classname = "RadioFrquencyIdenifierServiceImpl";
+
+package SmartWareHouse;
+
+// Interface exported by the server.
+service RadioFrequencyIdenifierService {
+	//server streaming
+
+  rpc ProductTracker(ProductTranckerRequest) returns (Stream ProductTrackerResponse) {}
+
+//unary
+  rpc Scanner(ScannerRequest ) returns (stream ScannerResponer ) {}
+
+
+}
+
+message ScannerRequest {
+	string number = 1;
+
+}
+
+message ScannerResponer{
+	string number  = 1;
+	int32 base = 2;
+}
+
+message ProductTranckerRequest {
+	string number  = 1;
+	int32 base = 2;
+
+}
+
+
+message ProductTrackerResponse {
+	int32 number = 1;
+}
+
+
+
+message CalculateRequest {
+  float number1 = 1;
+  float number2 = 2;
+
+}
+

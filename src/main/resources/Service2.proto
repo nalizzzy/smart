@@ -1,0 +1,35 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "SensorImpl";
+service SensorService {
+	
+//client steaming
+rpc ChangeRoomTemp(stream TempRequest) returns (  TempResponer){}
+
+// bi directional
+rpc TurnOnOffLight(Stream lightRequest) returns ( Stream LightResponse){}
+
+
+}
+message TempRequest {
+	string number = 1;
+
+}
+
+message TempResponer{
+	string number  = 1;
+	int32 base = 2;
+}
+
+message lightRequest {
+ Stream val =1;
+}
+
+
+message LightResponse {
+	int32 number = 1;
+}
+
+
+
+
